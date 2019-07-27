@@ -27,7 +27,10 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select></select>
+        <select id="room-select"></select>
+        <form action="#" id="send" method="post">
+          <input type="text" name="roomname" id="roomname"/>
+        </form>
         <button>Add Room</button>
       </div>
       <form action="#" id="send" method="post">
