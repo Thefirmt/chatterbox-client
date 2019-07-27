@@ -4,6 +4,9 @@ var MessagesView = {
 
   initialize: function() {
     FormView.$form.on('submit', MessagesView.render());
+    $('#refresh').on('click', function(event){
+      location.reload(true);
+    })
   },
 
     // for (var i = 0; i < data.results.length; ++i) {
@@ -19,7 +22,7 @@ var MessagesView = {
         if (data.results[i].text === undefined || data.results[i].text === '') {
           data.results[i].text = 'n/a';
         }
-        $('#chats').append(MessageView.render(data.results[i]));
+        $('#chats').append(filterXSS(MessageView.render(data.results[i])));
       }
     });
   },

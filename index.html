@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="client/styles/styles.css">
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="node_modules/underscore/underscore.js"></script>
+    <script src="https://rawgit.com/leizongmin/js-xss/master/dist/xss.js"></script>
     <script>
       // DO NOT MODIFY THIS CODE
       if (!/(&|\?)username=/.test(window.location.search)) {
@@ -27,11 +28,12 @@
       <div class="spinner"><img src="client/images/spiffygif_46x46.gif"></div>
       <div id="rooms">
         Room:
-        <select id="room-select"></select>
+        <select></select>
         <form action="#" id="send" method="post">
           <input type="text" name="roomname" id="roomname"/>
         </form>
         <button>Add Room</button>
+        <button id="refresh">Refresh Messages</button>
       </div>
       <form action="#" id="send" method="post">
         <input type="text" name="message" id="message"/>
