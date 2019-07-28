@@ -8,7 +8,7 @@ var FormView = {
 
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
-    // event.preventDefault();
+    event.preventDefault();
     var msg = {
     //obtain username from page load
     // username: window.location.search.substr(10),
@@ -16,8 +16,9 @@ var FormView = {
     //obtain val() from form
     text: $('#message').val(),
     //eventually obtain room
-    roomname: $('#room-select').val()
-    }
+    roomname: $('#room-selector option:selected').text()
+  }
+  console.log(msg);
     Parse.create(msg, ()=>{
       $('#chats').append(MessageView.render(msg))
     });

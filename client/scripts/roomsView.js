@@ -2,17 +2,24 @@ var RoomsView = {
 
   $button: $('#rooms button'),
   $select: $('#rooms select'),
+  $chatroom: $('#chatroom'),
+  // $usernames: $('.username'),
 
   initialize: function() {
       RoomsView.$button.on('click', function() {
+        Rooms.add();
         RoomsView.render();
-    })
+
+      })
+      RoomsView.$chatroom.on('click', function() {
+      MessagesView.renderChatroom();
+      })
+
   },
 
   render: function() {
-    var newRoom = $('#roomname').val()
-    RoomsView.$select.append(`<option>${newRoom}</option>`)
-
+    // var newRoom = $('#roomname').val()
+    // RoomsView.$select.append(`<option>${newRoom}</option>`)
     Parse.readAll(data => {
       var roomArr = []
       for (let i = 0; i < data.results.length; i++) {
@@ -30,7 +37,7 @@ var RoomsView = {
   },
 
 
-  renderRoom: function() {
+  renderRoom: function(data) {
     RoomsView.render();
   }
 };
